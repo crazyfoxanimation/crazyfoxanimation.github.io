@@ -1,0 +1,43 @@
+:root {
+  --swiper-theme-color: #0066ff;
+}
+
+.projecttitle {
+  font-weight: 800;
+  color: #ff6000;
+  text-transform: uppercase;
+  font-size: 32px;
+  border-bottom: solid 1px #ff6000;
+}
+
+.portfoliopics {
+}
+
+.portfoliopics:hover {
+  opacity: 70%!important;
+}
+
+.folio-roles {
+  font-size: 9pt;
+  text-transform: uppercase;
+  border-left: solid 1px #ff6000;
+  padding-left: 8px;
+}
+
+.portfovideo {
+  max-width: 1296px;
+  margin: auto;
+}
+
+.portfoliotag {
+  text-transform: uppercase;
+  font-size: small;
+  border-left: 5px solid #ff6000;
+  padding-left: 8px;
+}
+
+#virtualtour {
+  max-width: 1296px;
+  margin: auto;
+}
+
