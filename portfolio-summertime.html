@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Summertime Pools | Andy Smith</title>
-  <meta name="description" content="3D animation for Summertime Pools — showcasing the Daylesford pool design and features.">
+  <meta name="description" content="3D animation for Summertime Pools showcasing the Daylesford pool design and features.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/andy-smith.css">
@@ -261,6 +261,11 @@
     .next-title:hover svg { opacity: 1; transform: translateX(6px); }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .nav-link { display: none; }
+      h1.page-title { font-size: clamp(32px, 10vw, 96px); }
+    }
+
     @media (max-width: 900px) {
       #page-hero, #project-meta, #project-body, #project-video, #project-images, #next-project {
         padding-left: 1.5rem;
@@ -305,7 +310,7 @@
       </div>
       <div class="meta-group">
         <div class="meta-label">Project</div>
-        <div class="meta-value">The Daylesford — Product Launch</div>
+        <div class="meta-value">The Daylesford: Product Launch</div>
       </div>
       <div class="meta-group">
         <div class="meta-label">Deliverable</div>
@@ -328,7 +333,7 @@
     <div class="project-inner">
       <div class="project-description reveal-up">
         <div class="project-desc-text">
-          <p>To promote Summertime Pools' latest product launch — the Daylesford — I created a full 3D animation showcasing the design and features of this stunning swimming pool.</p>
+          <p>To promote Summertime Pools' latest product launch, the Daylesford. I created a full 3D animation showcasing the design and features of this stunning swimming pool.</p>
           <p>The brief called for something that would feel aspirational and immersive, allowing potential customers to experience the pool's aesthetic and features before it ever hits the ground. Every surface, water effect, and lighting pass was crafted to communicate the premium quality of the product.</p>
         </div>
         <div class="project-desc-aside">

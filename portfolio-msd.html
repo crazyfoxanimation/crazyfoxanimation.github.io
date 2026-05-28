@@ -1,91 +1,508 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Andy Smith | Animation</title>
-    <meta name="description" content="I’m Andy Smith. I’ve been lucky enough to spend over two decades in the 3D animation world, helping clients take a rough idea and transform it into something they’re proud to show off.
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Security Door | Andy Smith</title>
+  <meta name="description" content="3D virtual showroom for My Security Door, Melbourne's trusted Crimsafe and steel security door specialists.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/andy-smith.css">
+  <style>
 
-Available for freelance contracts, creative collaboration, or long-term roles.">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800,900&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700,800,900&amp;display=swap">
-    <link rel="stylesheet" href="assets/css/bss-overrides.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    #page-hero {
+      min-height: 52vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg2);
+    }
+
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/img/portfolio_images/msd.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+    }
+
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(14,13,12,1) 0%, rgba(14,13,12,0.3) 60%),
+        linear-gradient(to right, rgba(14,13,12,0.5) 0%, transparent 70%);
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--orange); }
+    .back-link svg { width: 14px; height: 14px; }
+
+    .page-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    h1.page-title {
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-size: clamp(32px, 10vw, 96px);
+      line-height: 0.95;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    /* ─── META BAR ───────────────────────────────────────────── */
+    #project-meta {
+      background: var(--bg);
+      border-bottom: 1px solid var(--surface2);
+      padding: 2.5rem 4rem;
+    }
+
+    .meta-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 5rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-group { flex: 1; min-width: 140px; }
+
+    .meta-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 0.5rem;
+    }
+
+    .meta-value {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .meta-value.roles {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    /* ─── PROJECT BODY ───────────────────────────────────────── */
+    #project-body {
+      padding: 5rem 4rem;
+      background: var(--bg);
+    }
+
+    .project-inner { max-width: 1200px; margin: 0 auto; }
+
+    .project-description {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-bottom: 5rem;
+      align-items: start;
+    }
+
+    .project-desc-text {
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      line-height: 1.9;
+    }
+    .project-desc-text p + p { margin-top: 1.2rem; }
+
+    .aside-block {
+      border-left: 2px solid var(--orange);
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .aside-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 0.4rem;
+    }
+    .aside-val {
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    /* ─── VIDEO ──────────────────────────────────────────────── */
+    #project-video {
+      padding: 0 4rem 5rem;
+      background: var(--bg);
+    }
+
+    .video-inner { max-width: 1200px; margin: 0 auto; }
+
+    /* ─── VIRTUAL TOUR CTA ───────────────────────────────────── */
+    #virtual-tour {
+      padding: 0 4rem 5rem;
+      background: var(--bg);
+    }
+
+    .tour-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      border: 1px solid var(--surface2);
+      padding: 3rem;
+      background: var(--surface);
+    }
+
+    .tour-screenshot {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.9);
+      transition: filter 0.4s ease;
+    }
+    .tour-screenshot:hover { filter: brightness(1); }
+
+    .tour-cta-content { }
+
+    .tour-cta-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .tour-cta-title {
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .tour-cta-desc {
+      font-size: 0.92rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .tour-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--orange);
+      color: #000;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.9rem 1.8rem;
+      transition: all 0.3s;
+    }
+    .tour-btn:hover { background: var(--white); }
+
+    /* ─── IMAGES ─────────────────────────────────────────────── */
+    #project-images {
+      padding: 0 4rem 6rem;
+      background: var(--bg);
+    }
+
+    .image-inner { max-width: 1200px; margin: 0 auto; }
+
+    .image-grid-full { margin-bottom: 1rem; }
+
+    .folio-img-wrap { overflow: hidden; }
+
+    .folio-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.92);
+      transition: filter 0.4s ease, transform 0.5s ease;
+    }
+    .folio-img-wrap:hover .folio-img {
+      filter: brightness(1.05);
+      transform: scale(1.02);
+    }
+
+    /* ─── NEXT PROJECT ───────────────────────────────────────── */
+    #next-project {
+      background: var(--bg2);
+      border-top: 1px solid var(--surface2);
+      padding: 4rem;
+    }
+
+    .next-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .next-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 0.5rem;
+    }
+
+    .next-title {
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--white);
+      text-transform: uppercase;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: color 0.3s;
+    }
+    .next-title:hover { color: var(--orange); }
+    .next-title svg { width: 24px; height: 24px; opacity: 0.5; transition: opacity 0.3s, transform 0.3s; }
+    .next-title:hover svg { opacity: 1; transform: translateX(6px); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .nav-link { display: none; }
+      h1.page-title { font-size: clamp(32px, 10vw, 96px); }
+    }
+
+    @media (max-width: 900px) {
+      #page-hero, #project-meta, #project-body, #project-video, #virtual-tour, #project-images, #next-project {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .project-description { grid-template-columns: 1fr; gap: 2.5rem; }
+      .tour-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+      .meta-inner { gap: 2rem; }
+      .next-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+  </style>
 </head>
-
 <body>
-    <section id="navtopandy">
-        <nav class="navbar navbar-expand-md bg-body px-md-6" style="font-family: Montserrat, sans-serif;background: rgba(255,255,255,0.3);--bs-body-bg: rgb(255,255,255);">
-            <div class="container-fluid"><a class="navbar-brand" href="index.html"><img src="assets/img/andysmithlogo-8.png" width="170" height="55"></a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navcol-2">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="Andy_Smith_CV.pdf">Download CV</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
-    <section class="text-start py-4" id="description">
-        <div class="container text-start">
-            <div class="row">
-                <div class="col-lg-7 col-xl-7">
-                    <h2 class="text-start projecttitle">my security door</h2>
-                    <p class="text-start">My Security Door are Melbourne's most trusted specialists in Crimsafe and steel security doors. As part of their rebrand I created a Virtual Showroom to showcase their amazing range of door designs.</p>
-                </div>
-                <div class="col-md-12 col-xl-8 offset-xl-0">
-                    <p class="d-flex flex-column folio-roles"><strong>Roles:</strong>3D Modelling<br>3d Rendering<br>virtual tour build</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="text-center mb-1 portfovideo" id="video">
-        <div class="col col-lg-12 text-center">
-            <div class="ratio ratio-16x9"><iframe src="https://player.vimeo.com/video/1169758150" allowfullscreen=""></iframe></div>
-        </div>
-    </section>
-    <section class="my-6" id="visit_showroom">
-        <div class="container">
-            <div class="row gx-1">
-                <div class="col-12 col-md-6 text-center d-flex flex-column align-items-center mb-1"><img class="img-fluid" width="1919" height="1079" src="assets/img/portfolio_images/MSD/MSD_vt_screenshot.webp"></div>
-                <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center mt-5">
-                    <p>Click below to visit the Virtual Showroom</p><a href="https://showroom.mysecuritydoor.com.au/" target="_blank"><button class="btn btn-primary" type="button" style="color: rgb(255,255,255);">View Showroom</button></a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="portfolioimages1-2">
-        <div class="container">
-            <div class="row gx-1">
-                <div class="mb-1"><img class="img-fluid" width="1400" height="875" src="assets/img/portfolio_images/MSD/Decorative5a.webp"></div>
-            </div>
-        </div>
-    </section>
-    <section id="portfolioimages1-1">
-        <div class="container">
-            <div class="row gx-1">
-                <div class="mb-1"><img class="img-fluid" width="1750" height="875" src="assets/img/portfolio_images/MSD/modern1.webp"></div>
-            </div>
-        </div>
-    </section>
-    <section id="portfolioimages1-3">
-        <div class="container">
-            <div class="row gx-1">
-                <div class="mb-1"><img class="img-fluid" width="1750" height="875" src="assets/img/portfolio_images/MSD/mesh_comparison.webp"></div>
-            </div>
-        </div>
-    </section>
-    <section id="portfolioimages1-4">
-        <div class="container">
-            <div class="row gx-1">
-                <div class="mb-1"><img class="img-fluid" width="1400" height="700" src="assets/img/portfolio_images/MSD/cage_render4.webp"></div>
-            </div>
-        </div>
-    </section>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-</body>
 
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">ANDY<span>.</span>SMITH</a>
+    <a class="nav-link" href="Andy_Smith_CV.pdf">Download CV</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section id="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <a class="back-link" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+        Back to work
+      </a>
+      <div class="page-eyebrow">3D Virtual Tour</div>
+      <h1 class="page-title">My Security<br>Door</h1>
+    </div>
+  </section>
+
+  <!-- META BAR -->
+  <section id="project-meta">
+    <div class="meta-inner">
+      <div class="meta-group">
+        <div class="meta-label">Client</div>
+        <div class="meta-value">My Security Door</div>
+      </div>
+      <div class="meta-group">
+        <div class="meta-label">Project</div>
+        <div class="meta-value">Virtual Showroom</div>
+      </div>
+      <div class="meta-group">
+        <div class="meta-label">Deliverable</div>
+        <div class="meta-value">3D Renders / Interactive Virtual Tour</div>
+      </div>
+      <div class="meta-group">
+        <div class="meta-label">Roles</div>
+        <div class="meta-value roles">
+          <span>3D Modelling</span>
+          <span>3D Rendering</span>
+          <span>Virtual Tour Build</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT BODY -->
+  <section id="project-body">
+    <div class="project-inner">
+      <div class="project-description reveal-up">
+        <div class="project-desc-text">
+          <p>My Security Door are Melbourne's most trusted specialists in Crimsafe and steel security doors. As part of their rebrand, I created a Virtual Showroom to showcase their full range of door designs.</p>
+          <p>The challenge was building something that could replace the need for a physical showroom, letting customers browse, compare and visualise different door styles in a realistic home environment without leaving their couch.</p>
+          <p>Detailed 3D modelling and rendering of each door design was combined with a fully interactive virtual tour, giving the client a sales tool that works around the clock.</p>
+        </div>
+        <div class="project-desc-aside">
+          <div class="aside-block">
+            <div class="aside-label">Approach</div>
+            <div class="aside-val">High-fidelity 3D renders of every door style, built into an interactive virtual tour platform for an immersive browsing experience.</div>
+          </div>
+          <div class="aside-block">
+            <div class="aside-label">Outcome</div>
+            <div class="aside-val">A 24/7 sales asset that lets customers explore the full product range in a realistic setting, reducing reliance on a physical showroom.</div>
+          </div>
+          <div class="aside-block">
+            <div class="aside-label">Tools</div>
+            <div class="aside-val">Blender (Cycles), Virtual Tour Platform, Adobe Creative Suite</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="project-video">
+    <div class="video-inner reveal-up">
+      <div class="video-frame">
+        <iframe src="https://player.vimeo.com/video/1169758150" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIRTUAL TOUR CTA -->
+  <section id="virtual-tour">
+    <div class="tour-inner reveal-up">
+      <img class="tour-screenshot" src="assets/img/portfolio_images/MSD/MSD_vt_screenshot.webp" alt="My Security Door virtual showroom screenshot">
+      <div class="tour-cta-content">
+        <div class="tour-cta-label">Live Experience</div>
+        <div class="tour-cta-title">Explore the Virtual Showroom</div>
+        <p class="tour-cta-desc">Browse the full range of Crimsafe and steel security door designs in an immersive, interactive 3D environment.</p>
+        <a class="tour-btn" href="https://showroom.mysecuritydoor.com.au/" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Visit Showroom
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGES -->
+  <section id="project-images">
+    <div class="image-inner">
+
+      <div class="image-grid-full reveal-up">
+        <div class="folio-img-wrap">
+          <img class="folio-img" src="assets/img/portfolio_images/MSD/Decorative5a.webp" alt="My Security Door — decorative door render">
+        </div>
+      </div>
+
+      <div class="image-grid-full reveal-up">
+        <div class="folio-img-wrap">
+          <img class="folio-img" src="assets/img/portfolio_images/MSD/modern1.webp" alt="My Security Door — modern door render">
+        </div>
+      </div>
+
+      <div class="image-grid-full reveal-up">
+        <div class="folio-img-wrap">
+          <img class="folio-img" src="assets/img/portfolio_images/MSD/mesh_comparison.webp" alt="My Security Door — mesh comparison">
+        </div>
+      </div>
+
+      <div class="image-grid-full reveal-up">
+        <div class="folio-img-wrap">
+          <img class="folio-img" src="assets/img/portfolio_images/MSD/cage_render4.webp" alt="My Security Door — cage render">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEXT PROJECT -->
+  <section id="next-project">
+    <div class="next-inner">
+      <div>
+        <div class="next-label">Next Project</div>
+        <a class="next-title" href="portfolio-summertime.html">
+          Summertime Pools
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <a href="index.html" class="footer-cta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M4 10v10h6v-6h4v6h6V10"/></svg>
+        All Projects
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">ANDY<span>.</span>SMITH</div>
+    <div class="footer-note">Melbourne, Australia &nbsp;·&nbsp; Available for freelance &amp; long-term roles</div>
+    <a href="Andy_Smith_CV.pdf" class="footer-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 14l5 5 5-5M5 20h14"/></svg>
+      Download CV
+    </a>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.style.background = 'rgba(14,13,12,0.97)';
+        nav.style.backdropFilter = 'blur(12px)';
+      } else {
+        nav.style.background = 'linear-gradient(to bottom, rgba(14,13,12,0.95) 0%, transparent 100%)';
+        nav.style.backdropFilter = 'none';
+      }
+    }, { passive: true });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal-up, .reveal-left, .reveal-fade')
+      .forEach(el => observer.observe(el));
+  </script>
+
+</body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Major Roads Project Victoria | Andy Smith</title>
-  <meta name="description" content="3D animation for Major Road Projects Victoria — demystifying high-pressure gas infrastructure safety and planning.">
+  <meta name="description" content="3D animation for Major Road Projects Victoria, demystifying high-pressure gas infrastructure safety and planning.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/andy-smith.css">
@@ -242,6 +242,11 @@
     .next-title:hover svg { opacity: 1; transform: translateX(6px); }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .nav-link { display: none; }
+      h1.page-title { font-size: clamp(32px, 10vw, 96px); }
+    }
+
     @media (max-width: 900px) {
       #page-hero, #project-meta, #project-body, #project-video, #project-images, #next-project {
         padding-left: 1.5rem;
@@ -311,13 +316,13 @@
       <div class="project-description reveal-up">
         <div class="project-desc-text">
           <p>I designed and produced a clear, engaging animation for Major Road Projects Victoria that demystifies the safety and planning requirements of high-pressure gas infrastructure.</p>
-          <p>Technical subject matter like underground pipeline management demands a visual approach that is both accurate and accessible. The challenge was translating complex engineering data into something a general audience could immediately understand — without losing the precision that the subject demands.</p>
+          <p>Technical subject matter like underground pipeline management demands a visual approach that is both accurate and accessible. The challenge was translating complex engineering data into something a general audience could immediately understand, without losing the precision that the subject demands.</p>
           <p>From initial scriptwriting and storyboarding through to final 3D modelling, animation and edit, the entire pipeline was handled in-house.</p>
         </div>
         <div class="project-desc-aside">
           <div class="aside-block">
             <div class="aside-label">Approach</div>
-            <div class="aside-val">Full end-to-end production — script, storyboard, 3D build, animation and final edit delivered as a single package.</div>
+            <div class="aside-val">Full end-to-end production: script, storyboard, 3D build, animation and final edit delivered as a single package.</div>
           </div>
           <div class="aside-block">
             <div class="aside-label">Challenge</div>

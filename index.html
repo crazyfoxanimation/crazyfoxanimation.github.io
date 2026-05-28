@@ -84,6 +84,29 @@
     }
     .nav-link:hover { background: var(--orange); color: #000; }
 
+    .nav-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: var(--orange);
+      color: #000;
+      text-decoration: none;
+      padding: 0.55rem 1.4rem;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    .nav-email:hover { background: var(--white); }
+    .nav-email svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
     /* ─── HERO ───────────────────────────────────────────────── */
     #hero {
       min-height: 100dvh;
@@ -132,7 +155,7 @@
     h1.hero-title {
       font-family: 'Red Hat Display', sans-serif;
       font-weight: 800;
-      font-size: clamp(64px, 10vw, 148px);
+      font-size: clamp(38px, 10vw, 148px);
       line-height: 0.9;
       letter-spacing: 0;
       color: var(--white);
@@ -764,6 +787,9 @@
     @media (max-width: 600px) {
       .projects-grid-lower { grid-template-columns: 1fr; }
       .cv-header { flex-direction: column; }
+      .nav-link { display: none; }
+      .nav-email span { display: none; }
+      .nav-email { padding: 0.55rem 0.7rem; gap: 0; }
     }
     /* ─── HERO CAROUSEL ──────────────────────────────────────── */
     .hero-carousel {
@@ -843,7 +869,13 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#">ANDY<span>.</span>SMITH</a>
-    <a class="nav-link" href="Andy_Smith_CV.pdf">Download CV</a>
+    <div class="nav-right">
+      <a class="nav-link" href="Andy_Smith_CV.pdf">Download CV</a>
+      <a class="nav-email" href="mailto:crazyfoxanimation@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>Get in Touch</span>
+      </a>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -860,7 +892,7 @@
       Crafting<br><em>worlds</em><br>frame<br>by frame.
     </h1>
     <p class="hero-sub fade-up delay-2">
-      Senior 3D Animator &amp; Creative Director with over two decades turning rough concepts into cinematic reality — for broadcast, expo, and beyond.
+      Senior 3D Animator &amp; Creative Director with over two decades turning rough concepts into cinematic reality, for broadcast, expo, and beyond.
     </p>
     <a href="Andy_Smith_CV.pdf" class="hero-cta fade-up delay-3">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 14l5 5 5-5M5 20h14"/></svg>
@@ -900,7 +932,7 @@
       <div class="about-content">
         <div class="section-label">About Me</div>
         <p class="about-lead">
-          "I love the spark of a new project — that moment when an idea starts becoming something real."
+          "I love the spark of a new project, that moment when an idea starts becoming something real."
         </p>
         <p class="about-body">
           I'm Andy Smith. I've been lucky enough to spend over two decades in the 3D animation world, helping clients take a rough idea and transform it into something they're proud to show off.<br><br>
