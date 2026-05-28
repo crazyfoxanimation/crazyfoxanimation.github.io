@@ -1,214 +1,1231 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Andy Smith | Animation</title>
-    <meta name="description" content="I’m Andy Smith. I’ve been lucky enough to spend over two decades in the 3D animation world, helping clients take a rough idea and transform it into something they’re proud to show off.
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andy Smith | Animation</title>
+  <meta name="description" content="Senior 3D Animator & Creative Director. Over two decades transforming ideas into cinematic animation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #FF6B2B;
+      --orange-dim: #c94e18;
+      --orange-glow: rgba(255,107,43,0.18);
+      --bg: #0e0d0c;
+      --bg2: #141310;
+      --bg3: #1a1815;
+      --surface: #1e1c19;
+      --surface2: #252320;
+      --text: #e8e2d9;
+      --text-dim: #9a9186;
+      --text-faint: #5c5750;
+      --white: #f5f0ea;
+    }
 
-Available for freelance contracts, creative collaboration, or long-term roles.">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800,900&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700,800,900&amp;display=swap">
-    <link rel="stylesheet" href="assets/css/bss-overrides.css">
-    <link rel="stylesheet" href="assets/css/aos.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── GRAIN OVERLAY ─────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 200px;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 4rem;
+      background: linear-gradient(to bottom, rgba(14,13,12,0.95) 0%, transparent 100%);
+      transition: background 0.4s;
+    }
+
+    .nav-logo {
+      text-transform: uppercase;
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--orange); }
+
+    .nav-link {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      border: 1px solid var(--orange);
+      padding: 0.55rem 1.4rem;
+      transition: all 0.3s;
+    }
+    .nav-link:hover { background: var(--orange); color: #000; }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    #hero {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 6rem 4rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 900;
+      font-size: clamp(100px, 15vw, 220px);
+      -webkit-text-stroke: 1px rgba(255,107,43,0.07);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--orange);
+    }
+
+    h1.hero-title {
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-size: clamp(64px, 10vw, 148px);
+      line-height: 0.9;
+      letter-spacing: 0;
+      color: var(--white);
+      margin-bottom: 2.5rem;
+      text-transform: uppercase;
+    }
+    h1.hero-title em {
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-style: normal;
+      color: var(--orange);
+      text-transform: uppercase;
+    }
+
+    .hero-sub {
+      max-width: 520px;
+      font-size: 1rem;
+      color: var(--text-dim);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--orange);
+      color: #000;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 1rem 2.2rem;
+      transition: all 0.3s;
+    }
+    .hero-cta:hover { background: var(--white); }
+    .hero-cta svg { width: 16px; height: 16px; }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 4rem;
+      writing-mode: vertical-rl;
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .hero-scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--text-faint), transparent);
+    }
+
+    /* ─── SECTION WRAPPER ────────────────────────────────────── */
+    section { position: relative; }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    h2.section-title {
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-size: clamp(44px, 6vw, 60px);
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 3rem;
+      text-transform: none;
+    }
+
+    /* ─── SHOWREEL ───────────────────────────────────────────── */
+    #showreel {
+      padding: 8rem 4rem;
+      background: var(--bg2);
+    }
+
+    .showreel-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .showreel-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .video-frame::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1px solid rgba(255,107,43,0.25);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-corner {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--text-faint);
+      text-transform: uppercase;
+    }
+
+    /* ─── ABOUT ──────────────────────────────────────────────── */
+    #about {
+      padding: 8rem 4rem;
+      background: var(--bg);
+    }
+
+    .about-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(20%) contrast(1.05);
+    }
+    .about-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(255,107,43,0.12));
+      pointer-events: none;
+    }
+    .about-img-tag {
+      position: absolute;
+      bottom: -1px;
+      left: -1px;
+      background: var(--orange);
+      color: #000;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+    }
+
+    .about-content { padding-top: 1rem; }
+
+    .about-lead {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+
+    .about-body {
+      font-size: 0.98rem;
+      color: var(--text-dim);
+      line-height: 1.9;
+      margin-bottom: 2.5rem;
+    }
+    .about-body strong { color: var(--text); font-weight: 500; }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--surface2);
+      color: var(--text-dim);
+    }
+    .tag.accent { border-color: var(--orange); color: var(--orange); }
+
+    /* ─── CV ─────────────────────────────────────────────────── */
+    #cv {
+      padding: 8rem 4rem;
+      background: var(--bg2);
+    }
+
+    .cv-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cv-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--surface2);
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .cv-name {
+      text-transform: uppercase;
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-size: clamp(52px, 7vw, 96px);
+      letter-spacing: 0.06em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .cv-name span { color: var(--orange); }
+
+    .cv-subtitle {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    .cv-dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.9rem 1.8rem;
+      transition: all 0.3s;
+      align-self: center;
+    }
+    .cv-dl-btn:hover { background: var(--orange); color: #000; }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 5rem;
+    }
+
+    .cv-section-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--surface2);
+    }
+
+    .exp-item { margin-bottom: 3rem; }
+
+    .exp-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .exp-date {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+      border: 1px solid rgba(255,107,43,0.3);
+      padding: 0.2rem 0.6rem;
+      white-space: nowrap;
+    }
+
+    .exp-company {
+      font-size: 0.82rem;
+      color: var(--orange);
+      margin-bottom: 1rem;
+      letter-spacing: 0.06em;
+    }
+
+    .exp-list {
+      list-style: none;
+      padding: 0;
+    }
+    .exp-list li {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+    .exp-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+    }
+
+    .exp-note {
+      font-size: 0.88rem;
+      color: var(--text-faint);
+      font-style: italic;
+      line-height: 1.7;
+      border-left: 2px solid var(--surface2);
+      padding-left: 1rem;
+    }
+
+    /* Sidebar */
+    .skill-group { margin-bottom: 2.5rem; }
+    .skill-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 0.4rem;
+    }
+    .skill-val {
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    .core-box {
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      padding: 1.8rem;
+      margin-top: 3rem;
+    }
+    .core-box-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.2rem;
+    }
+    .core-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-bottom: 0.75rem;
+    }
+    .core-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    /* ─── PROJECTS ───────────────────────────────────────────── */
+    #projects {
+      padding: 8rem 4rem;
+      background: var(--bg);
+    }
+
+    .projects-inner { max-width: 1200px; margin: 0 auto; }
+
+    .projects-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+
+    .project-card:nth-child(1) { grid-row: span 2; }
+
+    .project-card-img {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter 0.5s ease;
+      filter: grayscale(30%) brightness(0.75);
+    }
+    .project-card:nth-child(1) .project-card-img { min-height: 580px; }
+
+    .project-card:hover .project-card-img {
+      transform: scale(1.06);
+      filter: grayscale(0%) brightness(0.65);
+    }
+
+    .project-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14,13,12,0.92) 0%, transparent 55%);
+      transition: opacity 0.4s;
+    }
+
+    .project-card:hover .project-card-overlay {
+      background: linear-gradient(to top, rgba(14,13,12,0.96) 0%, rgba(14,13,12,0.2) 60%);
+    }
+
+    .project-card-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem;
+    }
+
+    .project-card-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card-title {
+      text-transform: uppercase;
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .project-card:nth-child(1) .project-card-title {
+      text-transform: uppercase; font-size: 2.6rem; }
+
+    .project-card-arrow {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.3s;
+      color: var(--white);
+    }
+    .project-card:hover .project-card-arrow {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Second row projects (non-featured) */
+    .projects-grid-lower {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-card-sm {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+
+    .project-card-sm-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease, filter 0.5s ease;
+      filter: grayscale(30%) brightness(0.7);
+    }
+    .project-card-sm:hover .project-card-sm-img {
+      transform: scale(1.07);
+      filter: grayscale(0%) brightness(0.6);
+    }
+    .project-card-sm-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14,13,12,0.9) 0%, transparent 60%);
+    }
+    .project-card-sm-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.2rem;
+    }
+    .project-card-sm-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.3rem;
+    }
+    .project-card-sm-title {
+      text-transform: uppercase;
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--surface2);
+      padding: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      text-transform: uppercase;
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--orange); }
+
+    .footer-note {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--text-faint);
+    }
+
+    .footer-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--orange);
+      color: #000;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.9rem 1.8rem;
+      transition: all 0.3s;
+    }
+    .footer-cta:hover { background: var(--white); }
+
+    /* ─── DIVIDER ────────────────────────────────────────────── */
+    .divider-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--surface2), transparent);
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) both; }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.6s; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      #hero, #showreel, #about, #cv, #projects { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .cv-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card:nth-child(1) { grid-row: span 1; }
+      .project-card:nth-child(1) .project-card-img { min-height: 280px; }
+      .project-card:nth-child(1) .project-card-title {
+      text-transform: uppercase; font-size: 2rem; }
+      .projects-grid-lower { grid-template-columns: 1fr 1fr; }
+      footer { padding: 2.5rem 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .projects-grid-lower { grid-template-columns: 1fr; }
+      .cv-header { flex-direction: column; }
+    }
+    /* ─── HERO CAROUSEL ──────────────────────────────────────── */
+    .hero-carousel {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: opacity, transform;
+    }
+
+    .hero-slide.active {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+
+    .hero-slide.leaving {
+      opacity: 0;
+      transform: scale(0.98);
+      transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to top, rgba(14,13,12,0.95) 0%, rgba(14,13,12,0.3) 50%, rgba(14,13,12,0.5) 100%),
+        linear-gradient(to right, rgba(14,13,12,0.4) 0%, transparent 60%);
+    }
+
+    /* Ensure hero content sits above carousel */
+    #hero .hero-eyebrow,
+    #hero .hero-title,
+    #hero .hero-sub,
+    #hero .hero-cta,
+    #hero .hero-scroll-hint {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Carousel dots */
+    .hero-dots {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 4rem;
+      display: flex;
+      gap: 0.6rem;
+      z-index: 3;
+    }
+    .hero-dot {
+      width: 24px;
+      height: 2px;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: background 0.4s, width 0.4s;
+    }
+    .hero-dot.active {
+      background: var(--orange);
+      width: 40px;
+    }
+
+  </style>
 </head>
-
 <body>
-    <section id="navtopandy">
-        <nav class="navbar navbar-expand-md bg-body px-md-6" style="font-family: Montserrat, sans-serif;background: rgba(255,255,255,0.3);--bs-body-bg: rgb(255,255,255);">
-            <div class="container-fluid"><a class="navbar-brand" href="#"><img src="assets/img/andysmithlogo-8.png" width="170" height="55"></a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="Andy_Smith_CV.pdf">Download CV</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
-    <section id="showreel">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="mt-5 mb-5 projecttitle">Showreel</h1>
-                    <section class="text-center mb-1 portfovideo" id="video">
-                        <div class="col col-lg-12 text-center">
-                            <div class="ratio ratio-16x9"><iframe src="https://player.vimeo.com/video/1165237565" allowfullscreen=""></iframe></div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="mt-4 mx-4" id="profile">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 my-3 my-md-6">
-                    <h1 class="projecttitle">About Me</h1>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-xl-4"><img class="img-fluid" width="740" height="645" src="assets/img/andy-smith.jpg" style="border-radius: 32px;"></div>
-                <div class="col-md-6 col-xl-8">
-                    <p class="my-4 my-md-0">I’m Andy Smith. I’ve been lucky enough to spend over two decades in the 3D animation world, helping clients take a rough idea and transform it into something they’re proud to show off.<br><br>My journey has taken me across the globe, from the UK to Australia, working on diverse projects spanning <strong>TV programming, hologram content, and digital media.</strong><br><br>My process is deeply rooted in <strong>concept development</strong>. I love the "spark" of a new project and excel at taking an initial idea and quickly evolving it into a polished, tangible solution that hits your goals.&nbsp;I’m just as comfortable pitching the vision as I am at the workstation executing the final frames.<br><br>Beyond 3D animation, I’m also passionate about helping clients navigate the future of visual communication through <strong>immersive Virtual Reality experiences and 360 Virtual Tours.</strong><br><br><strong>Available for freelance contracts, creative collaboration, or long-term roles.</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="my-1 my-md-5" id="cv"><div class="container py-5 mt-4 shadow-sm bg-white rounded border">
-    <div class="row mb-4 border-bottom pb-4">
-        <div class="col-md-8">
-            <h2 class="display-7 fw-bold text-primary">ANDY SMITH</h2>
-            <p class="lead mb-1">Creative Director | Senior 3D Generalist | Full-Pipeline Animator</p>
-            <div class="text-muted">
-                <span class="me-3"><i class="bi bi-geo-alt-fill"></i> Melbourne, Australia</span>
-                
-            </div>
-        </div>
-        <div class="col-md-4 text-md-end mt-3 mt-md-0">
-            <a href="Andy_Smith_CV.pdf" class="btn btn-primary btn-lg rounded-pill shadow-sm">
-                <i class="bi bi-download me-2"></i><span style="color:white">Download PDF
-            </a>
-        </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">ANDY<span>.</span>SMITH</a>
+    <a class="nav-link" href="Andy_Smith_CV.pdf">Download CV</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-carousel">
+      <div class="hero-slide active" style="background-image: url('assets/img/hero_a.webp')"></div>
+      <div class="hero-slide" style="background-image: url('assets/img/hero_b.webp')"></div>
+      <div class="hero-slide" style="background-image: url('assets/img/hero_c.webp')"></div>
     </div>
+    <div class="hero-overlay"></div>
 
-    <div class="row">
-        <div class="col-lg-8 border-end-lg">
-            <h3 class="h4 text-uppercase fw-bold mb-4 text-secondary">Professional Experience</h3>
-            
-            <div class="mb-5">
-                <div class="d-flex justify-content-between align-items-baseline">
-                    <h5 class="fw-bold mb-0">Creative Director / Co-Owner</h5>
-                    <span class="badge bg-light text-dark border">2024 – Present</span>
-                </div>
-                <p class="text-primary fw-semibold mb-2">360Activate</p>
-                <ul class="text-muted">
-                    <li><strong>End-to-End Execution:</strong> Managing 100% of creative output while overseeing business strategy and client acquisition.</li>
-                    <li><strong>Full Pipeline Management:</strong> Optimised a lean Blender-based workflow for rapid turnaround of TV titles, product launches, and expo visuals.</li>
-                    <li><strong>Strategic Pitching:</strong> Translating rough client concepts into polished, technical, and cinematic solutions.</li>
-                </ul>
-            </div>
+    <div class="hero-eyebrow fade-up">Melbourne, Australia &nbsp;·&nbsp; Available for freelance</div>
+    <h1 class="hero-title fade-up delay-1">
+      Crafting<br><em>worlds</em><br>frame<br>by frame.
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      Senior 3D Animator &amp; Creative Director with over two decades turning rough concepts into cinematic reality — for broadcast, expo, and beyond.
+    </p>
+    <a href="Andy_Smith_CV.pdf" class="hero-cta fade-up delay-3">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 14l5 5 5-5M5 20h14"/></svg>
+      Download CV
+    </a>
 
-            <div class="mb-5">
-                <div class="d-flex justify-content-between align-items-baseline">
-                    <h5 class="fw-bold mb-0">Senior 3D Animator / Lead Creative</h5>
-                    <span class="badge bg-light text-dark border">2014 – 2024</span>
-                </div>
-                <p class="text-primary fw-semibold mb-2">360South</p>
-                <ul class="text-muted">
-                    <li>Delivered high-stakes 3D content for cinema commercials, TV pilots, and broadcast motion graphics.</li>
-                    <li>Pioneered the studio's expansion into immersive VR experiences and 360 virtual tours.</li>
-                    <li>Maintained a decade of consistent, high-quality delivery for a diverse international client base.</li>
-                </ul>
-            </div>
-
-            <div class="mb-4">
-                <div class="d-flex justify-content-between align-items-baseline">
-                    <h5 class="fw-bold mb-0">Senior Animator / Generalist</h5>
-                    <span class="badge bg-light text-dark border">1994 – 2014</span>
-                </div>
-                <p class="text-muted small mt-2 italic">Two decades of foundational experience across various global studios in the UK and Australia. Specialised in bridging the gap between technical engineering data and high-end visual storytelling.</p>
-            </div>
-        </div>
-
-        <div class="col-lg-4 ps-lg-4">
-            <div class="mb-5">
-                <h3 class="h4 text-uppercase fw-bold mb-4 text-secondary">Tech Stack</h3>
-                <div class="mb-3">
-                    <h6 class="fw-bold small text-uppercase">Primary 3D</h6>
-                    <p class="mb-0">Blender (Cycles / Eevee)</p>
-                </div>
-                <div class="mb-3">
-                    <h6 class="fw-bold small text-uppercase">Post & Edit</h6>
-                    <p class="mb-0">After Effects, DaVinci Resolve, Adobe Creative Suite</p>
-                </div>
-                <div class="mb-3">
-                    <h6 class="fw-bold small text-uppercase">Specialisms</h6>
-                    <p class="small text-muted">Modeling, Animation, Geo-Nodes, VR/360, Holographic Content, Technical Explainers.</p>
-                </div>
-            </div>
-
-            <div class="p-3 bg-light rounded">
-                <h3 class="h5 fw-bold mb-3">Core Expertise</h3>
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>30+ Years Industry Experience</li>
-                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>One-Man Pipeline Execution</li>
-                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Concept-to-Render Delivery</li>
-                    <li><i class="bi bi-check2-circle text-primary me-2"></i>Senior Client Management</li>
-                </ul>
-
-<br>
-                <h3 class="h5 fw-bold mb-3">Additional Skills</h3>
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><b>Foundational knowledge of:</b></li>
-                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Unity</li>
-                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Figma</li>
-                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>HTML5/CSS3 and Bootstrap</li>
-                 
-                </ul>
-            </div>
-        </div>
+    <div class="hero-dots">
+      <div class="hero-dot active" onclick="goToSlide(0)"></div>
+      <div class="hero-dot" onclick="goToSlide(1)"></div>
+      <div class="hero-dot" onclick="goToSlide(2)"></div>
     </div>
-</div></section>
-    <section id="featured-projects">
-        <div class="container my-3 my-md-6">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="projecttitle">Featured Projects</h1>
-                </div>
-            </div>
+  </section>
+
+  <!-- SHOWREEL -->
+  <section id="showreel">
+    <div class="showreel-inner">
+      <div class="showreel-header">
+        <div>
+          <div class="section-label">Reel 2024</div>
+          <h2 class="section-title" style="margin-bottom:0">Showreel</h2>
         </div>
-    </section>
-    <section class="mx-sm-0 mx-lg-4" id="workexamples1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-3" id="summertime"><a href="portfolio-summertime.html"><img class="img-fluid portfoliopics" width="800" height="450" data-bss-disabled-mobile="true" data-aos="fade" data-aos-duration="1000" src="assets/img/portfolio_images/summertime/summertime.jpg" title="Summertime pools"></a>
-                    <h1 class="mt-3 mb-0 h4">Summertime Pools</h1>
-                    <p class="portfoliotag">3d Animation</p>
-                </div>
-                <div class="col-md-6 mb-3" id="majorroads"><a href="portfolio-mrpv.html"><img class="img-fluid portfoliopics" width="800" height="450" data-aos="fade" data-aos-duration="1000" src="assets/img/portfolio_images/majorroads.jpg"></a>
-                    <h1 class="mt-3 mb-0 h4">Major Roads Project Victoria</h1>
-                    <p class="portfoliotag">3d animation</p>
-                </div>
-            </div>
+        <div class="video-corner">3D Animation &amp; Motion</div>
+      </div>
+      <div class="video-frame">
+        <iframe src="https://player.vimeo.com/video/1165237565" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="assets/img/andy-smith.jpg" alt="Andy Smith">
+        <div class="about-img-tag">Creative Director</div>
+      </div>
+      <div class="about-content">
+        <div class="section-label">About Me</div>
+        <p class="about-lead">
+          "I love the spark of a new project — that moment when an idea starts becoming something real."
+        </p>
+        <p class="about-body">
+          I'm Andy Smith. I've been lucky enough to spend over two decades in the 3D animation world, helping clients take a rough idea and transform it into something they're proud to show off.<br><br>
+          My journey has taken me across the globe, from the UK to Australia, working on diverse projects spanning <strong>TV programming, hologram content, and digital media.</strong><br><br>
+          My process is deeply rooted in <strong>concept development</strong>. I excel at taking an initial idea and quickly evolving it into a polished, tangible solution that hits your goals. I'm just as comfortable pitching the vision as I am at the workstation executing the final frames.<br><br>
+          Beyond 3D animation, I'm also passionate about helping clients navigate the future of visual communication through <strong>immersive Virtual Reality experiences and 360 Virtual Tours.</strong>
+        </p>
+        <div class="about-tags">
+          <span class="tag accent">3D Animation</span>
+          <span class="tag accent">VR / 360°</span>
+          <span class="tag accent">Holographic Content</span>
+          <span class="tag">Blender</span>
+          <span class="tag">After Effects</span>
+          <span class="tag">DaVinci Resolve</span>
+          <span class="tag">30+ Years Experience</span>
         </div>
-    </section>
-    <section class="mx-sm-0 mx-lg-4" id="workexamples1-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-3" id="JackDaniels"><a href="portfolio-jd.html"><img class="img-fluid portfoliopics" width="1920" height="1080" data-bss-disabled-mobile="true" data-aos="fade" data-aos-duration="1000" src="assets/img/portfolio_images/jd2.jpg"></a>
-                    <h1 class="mt-3 mb-0 h4">Jack Daniel's</h1>
-                    <p class="portfoliotag">3d animation</p>
-                </div>
-                <div class="col-md-6 mb-3" id="Sany"><a href="portfolio-sany.html"><img class="img-fluid portfoliopics" width="800" height="450" data-aos="fade" data-aos-duration="1000" src="assets/img/portfolio_images/digout0003.jpg"></a>
-                    <h1 class="mt-3 mb-0 h4">Sany Australia</h1>
-                    <p class="portfoliotag">3d animation</p>
-                </div>
-            </div>
+        <p style="font-size:0.82rem; letter-spacing:0.08em; color:var(--orange); text-transform:uppercase;">
+          Available for freelance contracts, creative collaboration, or long-term roles.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-line"></div>
+
+  <!-- CV -->
+  <section id="cv">
+    <div class="cv-inner">
+      <div class="cv-header">
+        <div>
+          <div class="cv-name">ANDY <span>SMITH</span></div>
+          <div class="cv-subtitle">Creative Director &nbsp;·&nbsp; Senior 3D Generalist &nbsp;·&nbsp; Full-Pipeline Animator</div>
         </div>
-    </section>
-    <section class="mx-sm-0 mx-lg-4" id="workexamples1-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-3" id="Brewarrina"><a href="portfolio-brewarrina.html"><img class="img-fluid portfoliopics" width="800" height="450" data-bss-disabled-mobile="true" data-aos="fade" data-aos-duration="1000" src="assets/img/portfolio_images/dippy.jpg"></a>
-                    <h1 class="mt-3 mb-0 h4">Brewarrina Museum</h1>
-                    <p class="portfoliotag">3d animation</p>
-                </div>
-                <div class="col-md-6 mb-3" id="msd"><a href="portfolio-msd.html"><img class="img-fluid portfoliopics" width="800" height="450" data-aos="fade" data-aos-duration="1000" src="assets/img/portfolio_images/msd.jpg"></a>
-                    <h1 class="mt-3 mb-0 h4">My Security Door</h1>
-                    <p class="portfoliotag">3d virtual tour</p>
-                </div>
+        <a href="Andy_Smith_CV.pdf" class="cv-dl-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 14l5 5 5-5M5 20h14"/></svg>
+          Download PDF
+        </a>
+      </div>
+
+      <div class="cv-grid">
+        <!-- Experience -->
+        <div>
+          <div class="cv-section-title">Professional Experience</div>
+
+          <div class="exp-item">
+            <div class="exp-top">
+              <div class="exp-title">Creative Director / Co-Owner</div>
+              <div class="exp-date">2024 – Present</div>
             </div>
+            <div class="exp-company">360Activate</div>
+            <ul class="exp-list">
+              <li><strong>End-to-End Execution:</strong> Managing 100% of creative output while overseeing business strategy and client acquisition.</li>
+              <li><strong>Full Pipeline Management:</strong> Optimised a lean Blender-based workflow for rapid turnaround of TV titles, product launches, and expo visuals.</li>
+              <li><strong>Strategic Pitching:</strong> Translating rough client concepts into polished, technical, and cinematic solutions.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-top">
+              <div class="exp-title">Senior 3D Animator / Lead Creative</div>
+              <div class="exp-date">2014 – 2024</div>
+            </div>
+            <div class="exp-company">360South</div>
+            <ul class="exp-list">
+              <li>Delivered high-stakes 3D content for cinema commercials, TV pilots, and broadcast motion graphics.</li>
+              <li>Pioneered the studio's expansion into immersive VR experiences and 360 virtual tours.</li>
+              <li>Maintained a decade of consistent, high-quality delivery for a diverse international client base.</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-top">
+              <div class="exp-title">Senior Animator / Generalist</div>
+              <div class="exp-date">1994 – 2014</div>
+            </div>
+            <div class="exp-company">Various Global Studios (UK &amp; Australia)</div>
+            <p class="exp-note">
+              Two decades of foundational experience across various global studios. Specialised in bridging the gap between technical engineering data and high-end visual storytelling.
+            </p>
+          </div>
         </div>
-    </section>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/aos.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
+
+        <!-- Sidebar -->
+        <div>
+          <div class="cv-section-title">Tech Stack</div>
+          <div class="skill-group">
+            <div class="skill-label">Primary 3D</div>
+            <div class="skill-val">Blender (Cycles / Eevee)</div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Post &amp; Edit</div>
+            <div class="skill-val">After Effects, DaVinci Resolve, Adobe Creative Suite</div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Specialisms</div>
+            <div class="skill-val" style="color:var(--text-dim); font-size:0.9rem;">Modeling, Animation, Geo-Nodes, VR/360, Holographic Content, Technical Explainers</div>
+          </div>
+
+          <div class="core-box">
+            <div class="core-box-title">Core Expertise</div>
+            <div class="core-item"><div class="core-dot"></div>30+ Years Industry Experience</div>
+            <div class="core-item"><div class="core-dot"></div>One-Man Pipeline Execution</div>
+            <div class="core-item"><div class="core-dot"></div>Concept-to-Render Delivery</div>
+            <div class="core-item"><div class="core-dot"></div>Senior Client Management</div>
+
+            <div class="core-box-title" style="margin-top:1.5rem;">Additional Skills</div>
+            <div class="core-item"><div class="core-dot"></div>Unity (Foundational)</div>
+            <div class="core-item"><div class="core-dot"></div>Figma (Foundational)</div>
+            <div class="core-item"><div class="core-dot"></div>HTML5 / CSS3 / Bootstrap</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="projects-inner">
+      <div class="projects-header">
+        <div>
+          <div class="section-label">Selected Work</div>
+          <h2 class="section-title" style="margin-bottom:0">Featured Projects</h2>
+        </div>
+      </div>
+
+      <!-- Main 2-col grid: featured left (tall) + 2 right -->
+      <div class="projects-grid">
+        <!-- Featured large -->
+        <a class="project-card" href="portfolio-summertime.html">
+          <img class="project-card-img" src="assets/img/portfolio_images/summertime/summertime.jpg" alt="Summertime Pools">
+          <div class="project-card-overlay"></div>
+          <div class="project-card-body">
+            <div class="project-card-tag">3D Animation</div>
+            <div class="project-card-title">Summertime Pools</div>
+          </div>
+          <div class="project-card-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </div>
+        </a>
+
+        <!-- Right column -->
+        <a class="project-card" href="portfolio-mrpv.html">
+          <img class="project-card-img" src="assets/img/portfolio_images/majorroads.jpg" alt="Major Roads">
+          <div class="project-card-overlay"></div>
+          <div class="project-card-body">
+            <div class="project-card-tag">3D Animation</div>
+            <div class="project-card-title">Major Roads Project Victoria</div>
+          </div>
+          <div class="project-card-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </div>
+        </a>
+
+        <a class="project-card" href="portfolio-jd.html">
+          <img class="project-card-img" src="assets/img/portfolio_images/jd2.jpg" alt="Jack Daniels">
+          <div class="project-card-overlay"></div>
+          <div class="project-card-body">
+            <div class="project-card-tag">3D Animation</div>
+            <div class="project-card-title">Jack Daniel's</div>
+          </div>
+          <div class="project-card-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- Lower row: 3 smaller -->
+      <div class="projects-grid-lower">
+        <a class="project-card-sm" href="portfolio-sany.html">
+          <img class="project-card-sm-img" src="assets/img/portfolio_images/digout0003.jpg" alt="Sany Australia">
+          <div class="project-card-sm-overlay"></div>
+          <div class="project-card-sm-body">
+            <div class="project-card-sm-tag">3D Animation</div>
+            <div class="project-card-sm-title">Sany Australia</div>
+          </div>
+        </a>
+        <a class="project-card-sm" href="portfolio-brewarrina.html">
+          <img class="project-card-sm-img" src="assets/img/portfolio_images/dippy.jpg" alt="Brewarrina Museum">
+          <div class="project-card-sm-overlay"></div>
+          <div class="project-card-sm-body">
+            <div class="project-card-sm-tag">3D Animation</div>
+            <div class="project-card-sm-title">Brewarrina Museum</div>
+          </div>
+        </a>
+        <a class="project-card-sm" href="portfolio-msd.html">
+          <img class="project-card-sm-img" src="assets/img/portfolio_images/msd.jpg" alt="My Security Door">
+          <div class="project-card-sm-overlay"></div>
+          <div class="project-card-sm-body">
+            <div class="project-card-sm-tag">3D Virtual Tour</div>
+            <div class="project-card-sm-title">My Security Door</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">ANDY<span>.</span>SMITH</div>
+    <div class="footer-note">Melbourne, Australia &nbsp;·&nbsp; Available for freelance &amp; long-term roles</div>
+    <a href="Andy_Smith_CV.pdf" class="footer-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 14l5 5 5-5M5 20h14"/></svg>
+      Download CV
+    </a>
+  </footer>
+
+  <script>
+    // ─── HERO CAROUSEL ────────────────────────────────────────
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots   = document.querySelectorAll('.hero-dot');
+    let current  = 0;
+    let timer;
+
+    function goToSlide(index) {
+      const prev = current;
+      slides[prev].classList.remove('active');
+      slides[prev].classList.add('leaving');
+      dots[prev].classList.remove('active');
+      setTimeout(() => slides[prev].classList.remove('leaving'), 1800);
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      resetTimer();
+    }
+
+    function nextSlide() {
+      goToSlide((current + 1) % slides.length);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(nextSlide, 5000);
+    }
+
+    resetTimer();
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .reveal-up, .reveal-left, .reveal-fade {
+        opacity: 0;
+        transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: opacity, transform;
+      }
+      .reveal-up   { transform: translateY(36px); }
+      .reveal-left { transform: translateX(-32px); }
+      .reveal-fade { transform: none; }
+      .reveal-up.in, .reveal-left.in, .reveal-fade.in {
+        opacity: 1; transform: none;
+      }
+      .projects-grid .project-card:nth-child(2) { transition-delay: 0.1s !important; }
+      .projects-grid .project-card:nth-child(3) { transition-delay: 0.2s !important; }
+      .projects-grid-lower .project-card-sm:nth-child(2) { transition-delay: 0.12s !important; }
+      .projects-grid-lower .project-card-sm:nth-child(3) { transition-delay: 0.24s !important; }
+      .exp-item:nth-child(2) { transition-delay: 0.12s !important; }
+      .exp-item:nth-child(3) { transition-delay: 0.24s !important; }
+      .about-tags .tag {
+        opacity: 0; transform: translateY(12px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .about-tags.in .tag { opacity: 1; transform: none; }
+      .about-tags.in .tag:nth-child(1) { transition-delay: 0.05s; }
+      .about-tags.in .tag:nth-child(2) { transition-delay: 0.12s; }
+      .about-tags.in .tag:nth-child(3) { transition-delay: 0.19s; }
+      .about-tags.in .tag:nth-child(4) { transition-delay: 0.26s; }
+      .about-tags.in .tag:nth-child(5) { transition-delay: 0.33s; }
+      .about-tags.in .tag:nth-child(6) { transition-delay: 0.40s; }
+      .about-tags.in .tag:nth-child(7) { transition-delay: 0.47s; }
+    `;
+    document.head.appendChild(style);
+
+    const targets = [
+      ['.section-label',    'reveal-up'],
+      ['h2.section-title',  'reveal-up'],
+      ['.showreel-header',  'reveal-up'],
+      ['.video-frame',      'reveal-up'],
+      ['.about-img-wrap',   'reveal-left'],
+      ['.about-lead',       'reveal-up'],
+      ['.about-body',       'reveal-up'],
+      ['.about-tags',       'reveal-up'],
+      ['.cv-header',        'reveal-up'],
+      ['.exp-item',         'reveal-up'],
+      ['.skill-group',      'reveal-up'],
+      ['.core-box',         'reveal-up'],
+      ['.projects-header',  'reveal-up'],
+      ['.project-card',     'reveal-up'],
+      ['.project-card-sm',  'reveal-up'],
+      ['footer',            'reveal-fade'],
+    ];
+
+    targets.forEach(([sel, cls]) => {
+      document.querySelectorAll(sel).forEach(el => el.classList.add(cls));
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal-up, .reveal-left, .reveal-fade')
+      .forEach(el => observer.observe(el));
+
+    // Parallax on hero ghost text
+    const bgText = document.querySelector('.hero-bg-text');
+    if (bgText) {
+      window.addEventListener('scroll', () => {
+        bgText.style.transform = `translate(-50%, calc(-50% + ${window.scrollY * 0.2}px))`;
+      }, { passive: true });
+    }
+
+    // Nav solidifies on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.style.background = 'rgba(14,13,12,0.97)';
+        nav.style.backdropFilter = 'blur(12px)';
+      } else {
+        nav.style.background = 'linear-gradient(to bottom, rgba(14,13,12,0.95) 0%, transparent 100%)';
+        nav.style.backdropFilter = 'none';
+      }
+    }, { passive: true });
+  </script>
 </body>
-
 </html>
